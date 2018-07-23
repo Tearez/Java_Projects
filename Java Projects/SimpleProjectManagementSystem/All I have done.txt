@@ -1,0 +1,21 @@
+*Created Todo, Ticket, Task, Data, SortByName classes
+
+*Updated the parameters of changeToDoState in ProjectManagementSystem class on line 30
+
+*Updated CommandType Enum on line 4 - added 'SEARCH'
+
+
+*Changed Item class to abstract class
+
+*Updated the TicketPriority ENUM 
+
+*add all *_COMMAND_NAME fields needed in CommandParserImpl class
+**Fixed bug: exception occured when EXIT wasn't added in CommandParserImpl
+
+*added functionality to all switch cases in Application class
+
+*added functionality to all methods implemented by ProjectManagementSystem interface in ProjectManagementSystemImpl class
+
+**sample input in Main class
+
+** all methods in ProjectManagementSystem interfae are now VOID
