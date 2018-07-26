@@ -25,5 +25,8 @@
         <property name = "hibernate.connection.password">
             Dimitrov970109
         </property>
+        <mapping class="com.telerikacademy.spirnghibernatedemo.models.Address"/>
+        <mapping class="com.telerikacademy.spirnghibernatedemo.models.Employee"/>
+        <mapping class="com.telerikacademy.spirnghibernatedemo.models.Town"/>
     </session-factory>
 </hibernate-configuration>

@@ -1,6 +1,6 @@
 package com.telerikacademy.spirnghibernatedemo.services;
 
-import com.telerikacademy.spirnghibernatedemo.data.EmployeeRepository;
+import com.telerikacademy.spirnghibernatedemo.data.base.EmployeeRepository;
 import com.telerikacademy.spirnghibernatedemo.models.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

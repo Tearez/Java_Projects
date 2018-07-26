@@ -2,6 +2,7 @@ package com.telerikacademy.spirnghibernatedemo.models;
 
 import javax.persistence.*;
 
+
 @Entity
 @Table(name = "employees")
 public class Employee {
@@ -18,6 +19,10 @@ public class Employee {
 
     @Column( name = "JobTitle")
     private String jobTitle;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "AddressID", nullable = false)
+    private Address address;
 
     public Employee() {
     }
@@ -58,5 +63,13 @@ public class Employee {
 
     public void setJobTitle(String jobTitle) {
         this.jobTitle = jobTitle;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 }

@@ -1,6 +1,8 @@
 package com.telerikacademy.spirnghibernatedemo.models;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +19,7 @@ public class Town {
     private String name;
 
     @OneToMany(cascade = CascadeType.ALL,
-            fetch = FetchType.EAGER,
+            fetch = FetchType.LAZY,
             mappedBy = "town")
     private List<Address> addresses = new ArrayList<>();
 
@@ -48,4 +50,5 @@ public class Town {
     public String toString() {
         return String.format("%d %s", id, name);
     }
+
 }

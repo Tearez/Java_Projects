@@ -1,6 +1,10 @@
 package com.telerikacademy.spirnghibernatedemo.data;
 
+import com.telerikacademy.spirnghibernatedemo.data.base.EmployeeRepository;
+import com.telerikacademy.spirnghibernatedemo.models.Address;
 import com.telerikacademy.spirnghibernatedemo.models.Employee;
+import com.telerikacademy.spirnghibernatedemo.models.Town;
+import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -17,6 +21,8 @@ public class EmployeeSQLRepository implements EmployeeRepository {
             factory = new Configuration()
                     .configure("hibernate.cfg.xml")
                     .addAnnotatedClass(Employee.class)
+                    .addAnnotatedClass(Address.class)
+                    .addAnnotatedClass(Town.class)
                     .buildSessionFactory();
     }
 
@@ -24,7 +30,7 @@ public class EmployeeSQLRepository implements EmployeeRepository {
     @Override
     public Employee getById(int id) {
         Employee e = null;
-        try(Session session = factory.openSession();) {
+        try(Session session = factory.openSession()) {
             session.beginTransaction();
             e = session.get(Employee.class, id);
             session.getTransaction().commit();
@@ -39,7 +45,7 @@ public class EmployeeSQLRepository implements EmployeeRepository {
         List<Employee> employees = new ArrayList<>();
         try(Session session = factory.openSession()) {
             session.beginTransaction();
-            employees = session.createQuery("from Employee").list();
+            employees = session.createQuery("from Employee", Employee.class).list();
             session.getTransaction().commit();
         } catch (Exception ex){
             System.out.println(ex.getMessage());

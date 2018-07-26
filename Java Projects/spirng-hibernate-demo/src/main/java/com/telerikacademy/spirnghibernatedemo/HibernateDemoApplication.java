@@ -32,7 +32,7 @@ public class HibernateDemoApplication {
         List<Employee> employees = query.list();
 
         for (Employee emp:employees) {
-            System.out.println(emp.getId()+" "+emp.getFirstName());
+            System.out.println(emp.getId()+" "+emp.getFirstName()+" "+emp.getAddress());
         }
 
         session.getTransaction().commit();
